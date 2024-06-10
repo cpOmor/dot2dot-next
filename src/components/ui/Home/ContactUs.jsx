@@ -4,6 +4,7 @@ import toast, { Toaster } from "react-hot-toast";
 import Container from "../../Container/Container";
 
 export const ContactUs = () => {
+  const [isOn, setIsOn] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -32,87 +33,122 @@ export const ContactUs = () => {
   };
 
   return (
-    <div id="contact" >
+    <div id="contact">
       <div className="bg-black md:mt-[350px] mt-[200px]">
         <Container>
           <div className="md:flex pt-4">
-            <div className="md:w-1/2 bg-white rounded-lg md:p-10 p-6 -mt-[130px] md:mb-[130px] mb-[60px] outline">
-              <h2 className="text-[#72b43] md:text-[2.5rem] text-[1.5rem] font-bold">
-                Send Us a Message
-              </h2>
-              <form onSubmit={onSubmit} className="md:mt-8 ">
-                <div className="mt-4">
-                  <div className="flex md:flex-row flex-col  gap-4 items-center">
-                    <div className="w-full">
+            <div className="relative md:w-1/2 bg-white rounded-lg -mt-[130px] md:mb-[130px] mb-[60px] outline overflow-hidden">
+              {!isOn && (
+                <div className=" md:p-10  p-6">
+                  <h2 className="text-[#72b43] md:text-[2.5rem] text-[1.5rem] font-bold">
+                    Send Us a Message
+                  </h2>
+                  <form onSubmit={onSubmit} className="md:mt-8 ">
+                    <div className="mt-4">
+                      <div className="flex md:flex-row flex-col  gap-4 items-center">
+                        <div className="w-full">
+                          <input
+                            className="placeholder:text-md border hover:border-red-300 placeholder:text-base px-2 py-4 text-gray-500 focus:-[#f2849e]"
+                            type="text"
+                            name="name"
+                            placeholder="Full Name"
+                            value={formData.name}
+                            onChange={handleChange}
+                            required
+                          />
+                        </div>
+                        <div className="w-full">
+                          <input
+                            className="placeholder:text-md border hover:border-red-300 placeholder:text-base  px-2 py-4 text-gray-500 focus:-[#f2849e]"
+                            type="email"
+                            name="email"
+                            placeholder="Email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            required
+                          />
+                        </div>
+                      </div>
+                      <div className="flex md:flex-row flex-col  gap-4 items-center mt-4">
+                        <div className="w-full">
+                          <input
+                            className="placeholder:text-md border hover:border-red-300 placeholder:text-base  px-2 py-4 text-gray-500 focus:-[#f2849e]"
+                            type="tel"
+                            name="phone"
+                            placeholder="Phone"
+                            pattern="[0-9]+"
+                            value={formData.phone}
+                            onChange={handleChange}
+                            required
+                          />
+                        </div>
+                        <div className="w-full">
+                          <input
+                            className="placeholder:text-md border hover:border-red-300 placeholder:text-base  px-2 py-4 text-gray-500 focus:-[#f2849e]"
+                            type="url"
+                            name="website"
+                            placeholder="Website"
+                            value={formData.website}
+                            onChange={handleChange}
+                            required
+                          />
+                        </div>
+                      </div>
+                      <div className="mt-4">
+                        <div className="flex flex-col">
+                          <textarea
+                            className="placeholder:text-md border hover:border-red-300 placeholder:text-base  px-2 py-4 text-gray-500 focus:-[#f2849e]"
+                            name="message"
+                            placeholder="Message"
+                            rows="8"
+                            value={formData.message}
+                            onChange={handleChange}
+                            required
+                          ></textarea>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="md:flex gap-4">
                       <input
-                        className="placeholder:text-md border hover:border-red-300 placeholder:text-base px-2 py-4 text-gray-500 focus:-[#f2849e]"
-                        type="text"
-                        name="name"
-                        placeholder="Full Name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
+                        type="submit"
+                        value="Contact us"
+                        className="md:w-1/2 cursor-pointer bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500  py-2 px-4 rounded-full mt-8 font-semibold uppercase text-[17px] text-white"
                       />
                     </div>
-                    <div className="w-full">
-                      <input
-                        className="placeholder:text-md border hover:border-red-300 placeholder:text-base  px-2 py-4 text-gray-500 focus:-[#f2849e]"
-                        type="email"
-                        name="email"
-                        placeholder="Email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                      />
-                    </div>
-                  </div>
-                  <div className="flex md:flex-row flex-col  gap-4 items-center mt-4">
-                    <div className="w-full">
-                      <input
-                        className="placeholder:text-md border hover:border-red-300 placeholder:text-base  px-2 py-4 text-gray-500 focus:-[#f2849e]"
-                        type="tel"
-                        name="phone"
-                        placeholder="Phone"
-                        pattern="[0-9]+"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        required
-                      />
-                    </div>
-                    <div className="w-full">
-                      <input
-                        className="placeholder:text-md border hover:border-red-300 placeholder:text-base  px-2 py-4 text-gray-500 focus:-[#f2849e]"
-                        type="url"
-                        name="website"
-                        placeholder="Website"
-                        value={formData.website}
-                        onChange={handleChange}
-                        required
-                      />
-                    </div>
-                  </div>
-                  <div className="mt-4">
-                    <div className="flex flex-col">
-                      <textarea
-                        className="placeholder:text-md border hover:border-red-300 placeholder:text-base  px-2 py-4 text-gray-500 focus:-[#f2849e]"
-                        name="message"
-                        placeholder="Message"
-                        rows="8"
-                        value={formData.message}
-                        onChange={handleChange}
-                        required
-                      ></textarea>
-                    </div>
+                  </form>
+                </div>
+              )}
+
+              {isOn && (
+                <div className="overflow-hidden">
+                  <div className="w-full">
+                    <iframe
+                      width="720"
+                      height="600"
+                      frameborder="0"
+                      scrolling="no"
+                      marginheight="0"
+                      marginwidth="0"
+                      src="https://maps.google.com/maps?width=720&amp;height=600&amp;hl=en&amp;q=301%20Victoria%20Rd,%20Marrickville%20NSW%202204,+(Dot2Dot%20Printing%20Pty%20Ltd)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+                    >
+                      {/* <a href="https://www.gps.ie/">gps trackers</a> */}
+                    </iframe>
                   </div>
                 </div>
-                <div className="md:flex gap-4">
-                  <input
-                    type="submit"
-                    value="Contact us"
-                    className="md:w-1/2 cursor-pointer bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500  py-2 px-4 rounded-full mt-8 font-semibold uppercase text-[17px] text-white"
-                  />
-                  <div className="md:border-none border border-red-200 cursor-pointer md:w-1/2 flex gap-2 items-center md:justify-end justify-center text-gray-400 py-2 px-4 rounded-full md:mt-8 mt-3 font-semibold uppercase text-[17px]">
+              )}
+
+              
+
+              <div
+                onClick={() => setIsOn(!isOn)}
+                className="md:absolute md:bottom-6 md:right-6 md:w-1/2 flex gap-2 items-center md:justify-end justify-center text-gray-400  md:px-0 mx-6 -mt-2  rounded-full md:mt-8  font-semibold uppercase text-[17px]"
+              >
+                {!isOn ? (
+                  <div className="flex items-center border w-full md:w-auto justify-center rounded-full gap-2  px-6 p-2  mb-4">
+                    <p>
+
                     VIEW MAP
+                    </p>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -128,8 +164,26 @@ export const ContactUs = () => {
                       />
                     </svg>
                   </div>
-                </div>
-              </form>
+                ) : (
+                  <span className="absolute md:flex bottom-4 flex items-center gap-2 bg-white rounded-full px-6 p-2 cursor-pointer">
+                    Contact Us
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="size-6"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18"
+                      />
+                    </svg>
+                  </span>
+                )}
+              </div>
             </div>
 
             <div className="md:w-1/2 md:pl-20 md:py-8 pb-12  flex flex-col justify-between text-white">
