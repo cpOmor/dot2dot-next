@@ -59,8 +59,7 @@ export const WeDo = () => {
               Website
             </p>
             <p className="mt-[20px] text-center !text-white font-thin  tracking-wider">
-              We Photocopy all kinds of papers. B&W Copy 30 cents and Colour 65
-              cents on 80 GSM paper.
+            We Create Beautiful Responsive Websites Starting from $499.99.
             </p>
           </div>
           <div className=" cardBg cardBg2 "></div>

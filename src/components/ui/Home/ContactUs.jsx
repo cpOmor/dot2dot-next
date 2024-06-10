@@ -163,7 +163,7 @@ export const ContactUs = () => {
                   Marrickville NSW 2204
                 </h2>
               </div>
-              <div className="md:mt-0 mt-6">
+              {/* <div className="md:mt-0 mt-6">
                 <p>Follow us on</p>
 
                 <div className="flex gap-2">
@@ -237,7 +237,7 @@ export const ContactUs = () => {
                     </svg>
                   </a>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </Container>

@@ -115,7 +115,7 @@ const Banner = () => {
   const settings = {
     dots: true,
     infinite: true,
-    // autoplay: true,
+    autoplay: true,
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
@@ -126,25 +126,25 @@ const Banner = () => {
       <div className="w-full mt-2 ">
         <Slider {...settings} className="relative sp ">
           {banner.map((item, i) => (
-            <div key={i} className="relative xl:h-[90vh] h-[90vh]">
+            <div key={i} className="relative xl:h-[90vh] h-[80vh] overflow-hidden">
               {/* image  */}
               <div className="bg-black absolute top-0 bottom-0 left-0 right-0 opacity-70"></div>
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:w-[65%] w-full">
                 <Image
                   width={600}
                   height={600}
-                  className="md:w-60 w-40 mx-auto"
+                  className="md:w-60 w-32 mx-auto "
                   src={item?.icon}
                   alt={item?.tag}
                 />
-                <h2 className=" md:text-[250.5%] leading-10 text-[150.5%] mt-2 text-center text-white font-bold w-full">
+                <h2 className="px-4 md:text-[250.5%] md:leading-10 text-[150.5%] mt-2 text-center text-white font-bold w-full">
                   {item?.title}
                 </h2>
                 <div className="w-[80%] mx-auto mt-4">
-                  <p className="text-[130.25%] text-center mx-w-[80%] text-[#f9f9ff]">
+                  <p className="md:text-[130.25%] text-center mx-w-[80%] text-[#f9f9ff]">
                     {item?.description}
                   </p>
-                  <h2 className="text-[110.25%] mt-4 font-extrabold text-center mx-w-[80%] text-[#f9f9ff]">
+                  <h2 className="md:text-[110.25%] leading-5 text-[90%] mt-4 font-extrabold text-center mx-w-[80%] text-[#f9f9ff]">
                     {item?.subTitle}
                   </h2>
                 </div>
@@ -152,7 +152,7 @@ const Banner = () => {
               {/* content  */}
               <div className=" h-[100vh]">
                 <Image
-                  className="w-auto xl:w-full h-[90vh]  "
+                  className="w-auto xl:w-full h-[90vh] object-cover  "
                   src={item?.image}
                   width={400}
                   height={400}
